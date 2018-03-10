@@ -1,6 +1,5 @@
 import requests
 import simplejson as json
-import getpass
 import sys
 import getopt
 import os
@@ -17,19 +16,17 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 if __name__ == "__main__":
-    opts, args = getopt.getopt(sys.argv[1:], "hn:", ["help", "name="])
-    name = "0413220"
+    opts, args = getopt.getopt(sys.argv[1:], "h", ["help"])
+    name = sys.argv[-1]
     for o, a in opts:
-        if o in ("-n", "--name"):
-            name = a
-        elif o in ("-h", "--help"):
-            print("python get_schedule.py [options]")
+        if o in ("-h", "--help"):
+            print("python get_schedule.py [options] student_id")
             print("  [options]")
-            print("    -n, --name=<string> -- student id. Default to 0413220")
             print("    -h, --help          -- display this help")
             sys.exit()
         else:
-            assert False, "unhandled option"
+            assert False, "Unreconized options"
+    
     password = getpass.getpass("Password for " + name + ": ")
     driver = webdriver.Remote (
         command_executor="http://hare1039.nctu.me:4444/wd/hub",
