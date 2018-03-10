@@ -1,0 +1,11 @@
+#+TILTE Homework: 1-1, Web crawer
+
+* This script craws your class timetable out, and print it to terminal
+* Dependency
+- request
+- simplejson
+- pandas
+- prettytable
+- selenium
+
+
