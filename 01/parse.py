@@ -5,7 +5,7 @@ import operator
 from pprint import pprint
 from prettytable import PrettyTable
 import collections
-
+import re
 
 class entry:
     def __init__(self):
@@ -13,7 +13,7 @@ class entry:
         self.user     = ""
 
     def set(self, str):
-        if "<auth.info>" in str:
+        if re.match("<*.*>", str) is not None:
             self.set_type2(str)
         else:
             self.set_type1(str)
@@ -69,7 +69,7 @@ if __name__ == "__main__":
         opt.reverse  = True
 
 #    pprint(vars(opt))
-
+    # std::vector<entry>
     entries = []
     for filename in args.log:
         f = open(filename, "r")
