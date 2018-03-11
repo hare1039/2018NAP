@@ -1,13 +1,30 @@
-#+TITLE Homework: 1-1, Web crawer
+#+TITLE: Homework: 1-1, Web crawer
 
-* About
+* About 1-1
 This script craws your class timetable out, and prints it to terminal
 
-* Dependency
+** Dependency
 - request
 - simplejson
 - pandas
 - prettytable
 - selenium
 
+** Usage
+#+BEGIN_SRC 
+python nahw1-1_0413220.py studentid
+#+END_SRC
 
+* About 1-2
+This script analize your auth log and finds out which username your sshd been attack
+
+** Dependency
+- prettytable
+- pprint
+
+** Usage
+#+BEGIN_SRC 
+python nahw1-2_0413220.py [-h] [-u] [-after [AFTER]] [-before [BEFORE]]
+                          [-n [N]] [-t [T]] [-r]
+                          [log [log ...]]
+#+END_SRC

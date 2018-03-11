@@ -1,7 +1,6 @@
 from dateutil import parser
 import argparse
 import sys
-import operator
 from pprint import pprint
 from prettytable import PrettyTable
 import collections
@@ -103,5 +102,5 @@ if __name__ == "__main__":
             break
         if sorted_summery[user] > opt.morethan:
             x.add_row([user, sorted_summery[user]])
-
+    
     print(x)
