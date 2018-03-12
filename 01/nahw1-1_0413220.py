@@ -11,7 +11,7 @@ from selenium import webdriver
 from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.common.exceptions import TimeoutException
+from selenium.common.exceptions import TimeoutException, UnexpectedAlertPresentException
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
@@ -76,12 +76,12 @@ if __name__ == "__main__":
         passfield.send_keys(password)
         try:
             passfield.submit()
+            driver.get("https://portal.nctu.edu.tw/portal/relay.php?D=cos")
             logined = True
-        except selenium.common.exceptions.UnexpectedAlertPresentException:
+        except UnexpectedAlertPresentException:
+            alert = driver.switch_to.alert
+            alert.accept()
             logined = False
-
-            
-    driver.get("https://portal.nctu.edu.tw/portal/relay.php?D=cos")
     try:
         element_present = EC.presence_of_element_located((By.ID, "submit"))
         WebDriverWait(driver, 20).until(element_present)
