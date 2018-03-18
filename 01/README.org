@@ -21,7 +21,7 @@ This script analize your auth log and finds out which username your sshd been at
 ** Dependency
 - prettytable
 - pprint
-
+- dateutil
 ** Usage
 #+BEGIN_SRC 
 python nahw1-2_0413220.py [-h] [-u] [-after [AFTER]] [-before [BEFORE]]
